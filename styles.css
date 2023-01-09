@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  /* --custom name: value; */
+  /* --light-green-bg: #476529; */
+  /* example, color: var(--navy-clr) */
+  --header-bg-clr: #22babb;
+  --main-bg-clr: #fa7f08;
+  --footer-bg-clr: #348888;
+}
+
+/* fonts */
+/* font-family: 'Roboto', sans-serif; */
+
+/* font settings */
+
+.page-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 2rem;
+}
+
+header {
+  background-color: var(--footer-bg-clr);
+}
+
+main {
+  background-color: var(--main-bg-clr);
+}
+
+footer {
+  background-color: var(--footer-bg-clr);
+}
+
+header,
+footer {
+  text-align: center;
+}
