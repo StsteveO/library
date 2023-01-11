@@ -3,13 +3,11 @@
 *::after {
   box-sizing: border-box;
 }
-
 body,
 html {
   height: 100%;
   margin: 0;
 }
-
 :root {
   /* --custom name: value; */
   /* --light-green-bg: #476529; */
@@ -28,15 +26,28 @@ html {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 2rem;
+  grid-template-rows: 7rem 1fr 3rem;
 }
 
 header {
   background-color: var(--footer-bg-clr);
 }
 
+.add-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
 main {
   background-color: var(--main-bg-clr);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 footer {
@@ -45,5 +56,71 @@ footer {
 
 header,
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card {
+  background-color: white;
   text-align: center;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 17rem;
+}
+
+.form{
+  background-color: white;
+  border: black 1px solid;
+  border-radius: .5rem;
+  height: 21rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms;
+}
+
+.form.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+fieldset{
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-yes-read,
+.radio-not-read{
+  display: flex;
+  align-items: center;
+}
+
+button{
+  cursor: pointer;
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  pointer-events: none;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.overlay.active{
+  opacity: 1;
+  pointer-events: all;
 }
