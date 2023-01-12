@@ -31,15 +31,33 @@ myLibrary.push(book5);
 
 console.log(myLibrary);
 ////////////////////////////////////////////////////////////////////////////////
+
+// CONNECTIONS
 let addBookBtn = document.querySelector(".add-book-btn");
 let form= document.querySelector(".form");
 let overlay= document.querySelector(".overlay");
+let closeFormBtn = document.querySelector(".close-btn");
 
+// EVENTS(WHAT TO DO)
 addBookBtn.addEventListener("click", () => {
   displayPopup();
 });
 
+closeFormBtn.addEventListener("click", ()=>{
+  closePopup();
+});
+
+overlay.addEventListener("click", ()=>{
+  closePopup();  
+});
+
+// FUNCTIONS
 function displayPopup() {
   form.classList.add("active");
   overlay.classList.add("active");
+};
+
+function closePopup(){
+   form.classList.remove("active");
+   overlay.classList.remove("active");
 }
