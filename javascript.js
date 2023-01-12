@@ -30,8 +30,16 @@ myLibrary.push(book4);
 myLibrary.push(book5);
 
 console.log(myLibrary);
-
+////////////////////////////////////////////////////////////////////////////////
 let addBookBtn = document.querySelector(".add-book-btn");
+let form= document.querySelector(".form");
+let overlay= document.querySelector(".overlay");
+
 addBookBtn.addEventListener("click", () => {
-  alert("hello world");
+  displayPopup();
 });
+
+function displayPopup() {
+  form.classList.add("active");
+  overlay.classList.add("active");
+}
