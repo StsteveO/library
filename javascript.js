@@ -14,22 +14,6 @@ function addBookToLibrary(usersInput) {
 function bookPlacementLoop() {
   //loops through the array and displays each book on the page
 }
-
-let book1 = new Book("book one", "john doe", 150, true);
-let book2 = new Book("book one", "john doe", 150, true);
-let book3 = new Book("book one", "john doe", 150, true);
-let book4 = new Book("book one", "john doe", 150, true);
-let book5 = new Book("book one", "john doe", 150, true);
-
-console.log(book1);
-
-myLibrary.push(book1);
-myLibrary.push(book2);
-myLibrary.push(book3);
-myLibrary.push(book4);
-myLibrary.push(book5);
-
-console.log(myLibrary);
 ////////////////////////////////////////////////////////////////////////////////
 
 // CONNECTIONS
@@ -37,10 +21,16 @@ let addBookBtn = document.querySelector(".add-book-btn");
 let form= document.querySelector(".form");
 let overlay= document.querySelector(".overlay");
 let closeFormBtn = document.querySelector(".close-btn");
+let submitBtn = document.getElementById("submit-btn");
+let title= document.getElementById("title"); //title.value= title
+let author = document.getElementById("author");
+let pageNumbers = document.getElementById("page_numbers");
+let readStatus = document.getElementsByName("read_status"); //node list
+let readStatusArray=Array.from(readStatus);
 
 // EVENTS(WHAT TO DO)
 addBookBtn.addEventListener("click", () => {
-  displayPopup();
+  openPopup();
 });
 
 closeFormBtn.addEventListener("click", ()=>{
@@ -51,8 +41,15 @@ overlay.addEventListener("click", ()=>{
   closePopup();  
 });
 
+form.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  let newBook= new Book(title.value, author.value, pageNumbers.value, radioValue());
+  myLibrary.push(newBook);
+  closePopup();
+});
+
 // FUNCTIONS
-function displayPopup() {
+function openPopup() {
   form.classList.add("active");
   overlay.classList.add("active");
 };
@@ -61,3 +58,14 @@ function closePopup(){
    form.classList.remove("active");
    overlay.classList.remove("active");
 }
+
+function radioValue() {
+  if (readStatusArray[0].checked===true){
+    return readStatusArray[0].value;
+  }else{
+    return readStatusArray[1].value;
+  }
+};
+
+//seeing myLibrary
+console.log(myLibrary);
