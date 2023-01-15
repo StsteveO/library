@@ -74,7 +74,7 @@ function pushBookToLibrary() {
   for (let i = 0; i < 1; i++) {
     let divCard= document.createElement("div");
     divCard.classList.add("card");
-    if(radioValue()==="read"){
+    if(radioValue()==="Read"){
       divCard.classList.add("read");
     }else{
       divCard.classList.add("not-read");
