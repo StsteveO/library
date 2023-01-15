@@ -39,6 +39,12 @@ header {
   justify-content: center;
 }
 
+button .sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
@@ -70,6 +76,14 @@ footer {
   border-radius: 1rem;
   height: 15rem;
   width: 17rem;
+}
+
+.card.read{
+  background-color: lightgreen;
+}
+
+.card.not-read{
+  background-color:rgb(255, 78, 78);
 }
 
 .form{
