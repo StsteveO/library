@@ -108,13 +108,25 @@ function pushBookToLibrary() {
     changeReadStatus.textContent = "Change Read Status";
     divCard.appendChild(changeReadStatus);
     changeReadStatus.style.cssText= "width: 90%;";
+    changeReadStatus.style.cssText= "border-radius: .5rem;";
+    changeReadStatus.style.cssText= "padding: .5rem 1.5rem;";
 
-    //Format read change status btn
+    changeReadStatus.addEventListener("click", (e)=>{
+      if ((e.path[1].getAttribute("class")) === "card read") {
+        e.path[1].setAttribute("class", "card not-read");
+        divCardFooter.textContent = `Read, or Not Read? : Not Read`;
+      } else if ((e.path[1].getAttribute("class")) === "card not-read") {
+        e.path[1].setAttribute("class", "card read");
+        divCardFooter.textContent = `Read, or Not Read? : Read`;
+      };
+    })
 
     let deleteBtn=document.createElement("button");
     deleteBtn.textContent="Delete"
     deleteBtn.classList.add(`${myLibrary.length}`);
     deleteBtn.style.cssText = "width: 90%;";
+    deleteBtn.style.cssText = "border-radius: .5rem;";
+    deleteBtn.style.cssText = "padding: .5rem 1.5rem;";
 
     deleteBtn.addEventListener("click", (e)=>{
       let text=("Are you sure you want to delete? \n\nThis action cannot be undone.");
@@ -131,6 +143,3 @@ function pushBookToLibrary() {
     divCard.appendChild(deleteBtn);
   }
 }
-
-console.log(cards);
-
